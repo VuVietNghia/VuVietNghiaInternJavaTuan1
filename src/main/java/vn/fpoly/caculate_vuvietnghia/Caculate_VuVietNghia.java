@@ -14,7 +14,7 @@ public class Caculate_VuVietNghia {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double a, b, tong = 0;
+        int a, b, tong = 0;
         String phepTinh;
         
         while (true) {
@@ -25,7 +25,7 @@ public class Caculate_VuVietNghia {
                 continue;
             }
             try {
-                a = Double.parseDouble(input);
+                a = Integer.parseInt(input);
                 break;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -41,7 +41,7 @@ public class Caculate_VuVietNghia {
                 continue;
             }
             try {
-                b = Double.parseDouble(input);
+                b = Integer.parseInt(input);
                 break;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -86,16 +86,10 @@ public class Caculate_VuVietNghia {
                 throw new AssertionError();
         }
 
-        if (phepTinh.equals("+")) {
-            System.out.println(a + " + " + b + " = " + tong);
-        } else if (phepTinh.equals("-")) {
-            System.out.println(a + " - " + b + " = " + tong);
-        } else if (phepTinh.equals("*")) {
-            System.out.println(a + " * " + b + " = " + tong);
-        } else if (phepTinh.equals("/")) {
-            System.out.println(a + " / " + b + " = " + tong);
+        if (tong > Integer.MAX_VALUE || tong < Integer.MIN_VALUE) {
+            System.out.println("Tổng vượt quá giới hạn int");
+        } else {
+            System.out.println(a + " " + phepTinh + " " + b + " = " + tong);
         }
-
-//        System.out.println("Tổng = " + tong);
     }
 }
